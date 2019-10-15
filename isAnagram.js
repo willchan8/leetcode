@@ -3,21 +3,29 @@ var isAnagram = function(s, t) {
   if (s.length !== t.length) {
     return false;
   }
-
-  let count = {};
+    
+  let sCount = {};
+  let tCount = {}; 
+  
   for (let i of s) {
-    if (!count[i]) {
-      count[i] = 1;
+    if (sCount[i]) {
+      sCount[i]++;
     } else {
-      count[i]++;
+      sCount[i] = 1;
     }
   }
 
   for (let i of t) {
-    if (!count[i]) {
-      return false;
+    if (tCount[i]) {
+      tCount[i]++;
     } else {
-      count[i]--;
+      tCount[i] = 1;
+    }
+  }
+    
+  for (let char in sCount) {
+    if (sCount[char] !== tCount[char]) {
+      return false;
     }
   }
 

@@ -11,11 +11,15 @@ and place the element in the correct place.
 let insertionSort = (nums) => {
   for (var i = 1; i < nums.length; i++) {
     currentVal = nums[i]; // current value to compare to each of the sorted elements on the left
-    for (var j = i - 1; j >= 0 && currentVal < nums[j]; j--) { // while currentVal is less than nums[j]
-      nums[j + 1] = nums[j]; // move nums[j] up by one if the current value left than nums[j]
+    for (var j = i - 1; j >= 0; j--) { // while currentVal is less than nums[j]
+      if (currentVal < nums[j]) {
+        nums[j + 1] = nums[j]; // move nums[j] up by one if the current value left than nums[j]
+      } else {
+        break // break out of the loop when currentVal is no longer than than nums[j]
+      }
     }
     nums[j + 1] = currentVal; // This line "INSERTS" the currentVal (temp) value in the correct spot. 
-    // Note: j[i + 1] because j is decremented in the loop before "breaking" out due to i <= 0 && currentVal < nums[j] being false. 
+    // Note: j[i + 1] because j is decremented in the loop before "breaking" out of the loop when currentVal < nums[j] is false. 
     // Note: 'var' in the loop also allows j to be function scoped while 'let' would be block scoped (and result in an error).
   }
   return nums;

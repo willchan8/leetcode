@@ -9,16 +9,15 @@
 // Because nums[0] + nums[1] = 2 + 7 = 9,
 // return [0, 1].
 
-// Solution: use hash table to store
+// Solution: Use a hash to store (value: index). If the difference between the target and the current value (nums[i]) is in the hash, return the indices.
 var twoSum = function(nums, target) {
   let map = {};
   for (let i = 0; i < nums.length; i++) {
       let second = target - nums[i];
       if (second in map) {
           return [map[second], i];
-      } else {
-        map[nums[i]] = i;
       }
+      map[nums[i]] = i;
   }
   
   return null;

@@ -1,4 +1,4 @@
-// Using hashing
+// Using hashing/frequency counter
 var isAnagram = function(s, t) {
   if (s.length !== t.length) {
     return false;
@@ -26,6 +26,34 @@ var isAnagram = function(s, t) {
   for (let char in sCount) {
     if (sCount[char] !== tCount[char]) {
       return false;
+    }
+  }
+
+  return true;
+};
+
+// Alternate method
+var isAnagram = function(s, t) {
+  let counter = {};
+  if (s.length !== t.length) {
+    return false;
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    // If letter exists, increment by 1, otherwise set to 1.
+    if (counter[s[i]]) {
+      counter[s[i]]++
+    } else {
+      counter[s[i]] = 1;
+    }
+  }
+
+  for (let i = 0; i < t.length; i++) {
+    // Can't find letter, or letter count is 0, then not an anagram.
+    if (!counter[t[i]]) {
+      return false;
+    } else {
+      counter[t[i]]--;
     }
   }
 

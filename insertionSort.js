@@ -13,13 +13,13 @@ let insertionSort = (nums) => {
     currentVal = nums[i]; // current value to compare to each of the sorted elements on the left
     for (var j = i - 1; j >= 0; j--) { // while currentVal is less than nums[j]
       if (currentVal < nums[j]) {
-        nums[j + 1] = nums[j]; // move nums[j] up by one if the current value left than nums[j]
+        nums[j + 1] = nums[j]; // moves/copies nums[j] to the right by one if the current value is less than nums[j]
       } else {
         break // break out of the loop when currentVal is no longer than than nums[j]
       }
     }
     nums[j + 1] = currentVal; // This line "INSERTS" the currentVal (temp) value in the correct spot. 
-    // Note: j[i + 1] because j is decremented in the loop before "breaking" out of the loop when currentVal < nums[j] is false. 
+    // Note: nums[j + 1] because j is decremented in the loop before "breaking" out of the loop when currentVal < nums[j] is false. 
     // Note: 'var' in the loop also allows j to be function scoped while 'let' would be block scoped (and result in an error).
   }
   return nums;

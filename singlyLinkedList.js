@@ -34,7 +34,7 @@ class SinglyLinkedList {
     }
     var current = this.head;
     var prev;
-    while(current.next) {
+    while (current.next) {
       prev = current;
       current = current.next;
     }
@@ -74,5 +74,18 @@ class SinglyLinkedList {
       this.tail = null;
     }
     return temp;
+  }
+
+  get(index) {
+    if (index < 0 || index >= this.length) {
+      return null;
+    }
+    var current = this.head;
+    var counter = 0;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+    return current;
   }
 }

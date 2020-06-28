@@ -1,5 +1,9 @@
 // Singly Linked List implementation using ES6 Classes
 // Great for insertion and deletion since it doesn't involve re-indexing.
+// Insertion: O(1)
+// Removal: O(1) at the beginning or O(N) towards the end
+// Searching: O(N)
+// Access: O(N)
 
 class Node {
   constructor(val) {
@@ -142,5 +146,21 @@ class SinglyLinkedList {
      prev.next = current.next;
      this.length--;
      return current;
+  }
+
+  // Remove linked list in place.
+  reverse() {
+    var node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+
+    var prev = null;
+    var current = node;
+    while(current) {
+      var next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
   }
 }

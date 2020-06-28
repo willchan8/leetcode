@@ -1,4 +1,5 @@
 // Implement Stack using Linked List
+// LIFO: Last value in is always the first one out.
 // Insertion: O(1)
 // Removal: O(1)
 // Searching: O(N)

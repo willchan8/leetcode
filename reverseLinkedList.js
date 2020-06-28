@@ -1,15 +1,16 @@
 var reverseList = function(head) {
-  // Set a temp 'prev' variable to store null initially
-  let prev = null;
+  // Set a temp 'prev' variable to null initially
+  var prev = null;
+  var current = head;
   
-  while (head) {
+  while (current) {
       // Set a temp 'next' variable to store the current node's next value
-      let next = head.next;
+      var next = current.next;
       // Set the 'next' property of the current node to the 'prev' value
-      head.next = prev;
-      // Shift 'prev' to 'head' and 'head' to 'next' for the next round of iteration
-      prev = head;
-      head = next;
+      current.next = prev;
+      // Shift 'prev' to 'current' and 'current' to 'next' for the next round of iteration
+      prev = current;
+      current = next;
   }
   
   return prev;
@@ -20,9 +21,10 @@ var reverseList = function(head) {
 
 var reverseList = function(head) {
   var prev = null
+  var current = head;
 
-  while (head) {
-    [head.next, head, prev] = [prev, head.next, head]
+  while (current) {
+    [current.next, current, prev] = [prev, current.next, current]
   }
   
   return prev ;

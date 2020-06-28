@@ -125,4 +125,22 @@ class SinglyLinkedList {
     this.length++
     return true;
   }
+
+  // Remove a node at a specific index.
+  remove(index) {
+     if (index < 0 || index > length) {
+       return undefined;
+     }
+     if (index === 0) {
+       return this.shift();
+     }
+     if (index === length - 1) {
+       return this.pop();
+     }
+     var prev = this.get(index - 1);
+     var current = prev.next;
+     prev.next = current.next;
+     this.length--;
+     return current;
+  }
 }

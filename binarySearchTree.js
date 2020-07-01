@@ -67,13 +67,13 @@ class BinarySearchTree {
 
   BFS() {
     var current = this.root;
-    var data = [];
+    var visited = [];
     var queue = [];
 
     queue.push(current);
     while(queue.length) {
       current = queue.shift(); // removes the first node in queue and sets as current
-      data.push(current);
+      visited.push(current);
       if (current.left) {
         queue.push(current.left);
       }
@@ -81,6 +81,23 @@ class BinarySearchTree {
         queue.push(current.right);
       }
     }
-    return data;
+    return visited;
+  }
+
+  DFSPreOrder() {
+    var visited = [];
+    function traverse(node) {
+      visited.push(node);
+      if (node.left) {
+        traverse(node.left);
+      }
+      if (node.right) {
+        traverse(node.right);
+      }
+    }
+
+    traverse(this.root);
+
+    return visited;
   }
 }

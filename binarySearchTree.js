@@ -64,4 +64,23 @@ class BinarySearchTree {
     }
     return false;
   }
+
+  BFS() {
+    var current = this.root;
+    var data = [];
+    var queue = [];
+
+    queue.push(current);
+    while(queue.length) {
+      current = queue.shift(); // removes the first node in queue and sets as current
+      data.push(current);
+      if (current.left) {
+        queue.push(current.left);
+      }
+      if (current.right) {
+        queue.push(current.right);
+      }
+    }
+    return data;
+  }
 }

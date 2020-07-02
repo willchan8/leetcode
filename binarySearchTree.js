@@ -1,5 +1,7 @@
 // Insert: O (log(n))
 // Search: O (log(n))
+// BFS: Same time complexity as DFS (each node visited once), but wider trees would take up more space in memory
+// DFS: Same time complexity as BFS (each node visited once), but deeper tree would take up more space in memory
 
 
 class Node {
@@ -84,6 +86,7 @@ class BinarySearchTree {
     return visited;
   }
 
+  // Good for flattening out a tree, in an order that's good for reconstructing the tree
   DFSPreOrder() {
     var visited = [];
     function traverse(node) {
@@ -97,7 +100,39 @@ class BinarySearchTree {
     }
 
     traverse(this.root);
+    return visited;
+  }
 
+  DFSPostOrder() {
+    var visited = [];
+    function traverse(node) {
+      if (node.left) {
+        traverse(node.left);
+      }
+      if (node.right) {
+        traverse(node.right);
+      }
+      visited.push(node);
+    }
+
+    traverse(this.root);
+    return visited;
+  }
+
+  // Visit lowest values to higher values in order (sorted).
+  DFSInOrder() {
+    var visited = [];
+    function traverse(node) {
+      if (node.left) {
+        traverse(node.left);
+      }
+      visited.push(node);
+      if (node.right) {
+        traverse(node.right);
+      }
+    }
+
+    traverse(this.root);
     return visited;
   }
 }

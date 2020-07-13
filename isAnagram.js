@@ -7,7 +7,7 @@ var isAnagram = function(s, t) {
   let sCount = {};
   let tCount = {}; 
   
-  for (let i of s) {
+  for (let i = 0; i < s.length; i++) {
     if (sCount[i]) {
       sCount[i]++;
     } else {
@@ -15,7 +15,7 @@ var isAnagram = function(s, t) {
     }
   }
 
-  for (let i of t) {
+  for (let i = 0; i < t.length; i++) {
     if (tCount[i]) {
       tCount[i]++;
     } else {

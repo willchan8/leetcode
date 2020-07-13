@@ -28,10 +28,13 @@ return its depth = 3.
  * @return {number}
  */
 
+// Good video explanation: https://www.youtube.com/watch?v=YT1994beXn0
+
 var maxDepth = function(root) {
     if (root === null) {
       return 0;
     }
+    // Check left and right children of each node.
     let left = maxDepth(root.left);
     let right = maxDepth(root.right);
     return Math.max(left, right) + 1;

@@ -15,23 +15,27 @@
 
  
 var mergeTwoLists = function(l1, l2) {
-  let head;
+  let current = new ListNode();
+  let head = current; // Set head as a dummy node
   
-  if (l1 === null) {
-      return l2;
+  while(l1 !== null && l2 !== null) {
+      if (l1.val < l2.val) {
+          current.next = l1; // Append l1 node.
+          l1 = l1.next; // Move l1 pointer.
+      } else {
+          current.next = l2; // Append l2 node.
+          l2 = l2.next; // Move l2 pointer.
+      }
+      current = current.next; // Current pointer always points to newly appended node.
   }
   
-  if (l2 === null) {
-      return l1;
+  // Append the remaining list to the end of the current list.
+  if (l1 !== null) {
+      current.next = l1;
+  }
+  if (l2 !== null) {
+      current.next = l2;
   }
   
-  if (l1.val < l2.val) {
-      head = l1;
-      head.next = mergeTwoLists(l1.next, l2);
-  } else if (l1.val >= l2.val) {
-      head = l2;
-      head.next = mergeTwoLists(l1, l2.next);
-  }
-  
-  return head;
+  return head.next; // The start of the list if the dummy node's next value.
 };

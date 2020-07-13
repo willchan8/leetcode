@@ -5,6 +5,8 @@
 // If a smaller value is found, set the smaller number (and its index) to be the minimum and continue until the end of the array
 // If the minimum is not the value (index) you initially began with, swap the two values
 
+// Summary: For each iteration, find the smallest value and swap with the current index at the end of the interation. Sorts small values first.
+
 let selectionSort = (nums) => {
   let minIndex;
   for (let i = 0; i < nums.length; i++) {

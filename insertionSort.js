@@ -1,9 +1,9 @@
 /* 
-Builds up the sort gradually creating a larger left half which is always sorted
+Builds up the sort gradually creating a larger left side that's sorted. Similar to how we sort playing cards in our hands.
 
 1. First element is "sorted", so start with by picking the second element in the array
 2. Compare second element with the one before it and swap if necessary
-3. Continue to the next element and if it is larger than smaller than the previous element, iterate through the sorted portion (i.e. left side)
+3. Continue to the next element and if it is smaller than the previous element, iterate through the sorted portion (i.e. left side)
 and place the element in the correct place.
 4. Repeat until the array is sorted
  */

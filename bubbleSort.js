@@ -1,4 +1,7 @@
-/* BubbleSort: Sorting algorithm where the largest values bubble up to the top */
+/* 
+BubbleSort: Sorting algorithm where the largest values bubble up to the top
+Summary: Compare two adjacent values. If the left is greater than the right, swap values. Sorts large values first.
+*/
 
 
 /* Brute force method. Note that the inner loop contains: j < nums.length - i, since the largest value is at the end of the array with each pass through */

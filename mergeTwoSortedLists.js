@@ -37,5 +37,5 @@ var mergeTwoLists = function(l1, l2) {
       current.next = l2;
   }
   
-  return head.next; // The start of the list if the dummy node's next value.
+  return head.next; // The start of the list is the dummy node's next value.
 };

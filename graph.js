@@ -20,7 +20,29 @@ class Graph {
   }
 
   removeVertex(vertex) {
-    this.adjacencyList[vertex].forEach(edge => this.removeEdge(vertex, edge));
+    this.adjacencyList[vertex].forEach(adjacentVertex => this.removeEdge(vertex, adjacentVertex));
     delete this.adjacencyList[vertex];
+  }
+
+  depthFirstRecursive(start) {
+    const visited = {};
+    const results = [];
+    const adjacencyList = this.adjacencyList;
+
+    function helper(vertex) {
+      if (!vertex) {
+        return null;
+      }
+      visited[vertex] = true;
+      results.push(vertex);
+      adjacencyList[vertex].forEach(neighbor => {
+        if ((!visited[neighbor])) {
+          return helper(neighbor);
+        }
+      });
+    }
+
+    helper(start);
+    return results;
   }
 }

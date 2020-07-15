@@ -45,4 +45,52 @@ class Graph {
     helper(start);
     return results;
   }
+
+  depthFirstIterative(start) {
+    const stack = [];
+    const visited = {};
+    const results = [];
+    let currentVertex;
+
+    stack.push(start);
+    visited[start] = true;
+
+    while (stack.length) {
+      currentVertex = stack.pop();
+      results.push(currentVertex);
+
+      this.adjacencyList[currentVertex].forEach(neighbor => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          stack.push(neighbor);
+        }
+      });
+    }
+
+    return results
+  }
+
+  breadthFirst(start) {
+    const queue = [];
+    const visited = {};
+    const results = [];
+    let currentVertex;
+
+    queue.push(start);
+    visited[start] = true;
+
+    while (queue.length) {
+      currentVertex = queue.shift();
+      results.push(currentVertex);
+
+      this.adjacencyList[currentVertex].forEach(neighbor => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          queue.push(neighbor);
+        }
+      });
+    }
+
+    return results;
+  }
 }

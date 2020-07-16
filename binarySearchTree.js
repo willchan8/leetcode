@@ -86,6 +86,8 @@ class BinarySearchTree {
     return visited;
   }
 
+  // Resource for DFS: https://medium.com/basecs/demystifying-depth-first-search-a7c14cccf056
+
   // Good for flattening out a tree, in an order that's good for reconstructing the tree
   DFSPreOrder() {
     var visited = [];

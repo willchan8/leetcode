@@ -30,12 +30,29 @@ return its depth = 3.
 
 // Good video explanation: https://www.youtube.com/watch?v=YT1994beXn0
 
+// Using DFS
 var maxDepth = function(root) {
     if (root === null) {
       return 0;
     }
-    // Check left and right children of each node.
-    let left = maxDepth(root.left);
+
+    let left = maxDepth(root.left); 
     let right = maxDepth(root.right);
     return Math.max(left, right) + 1;
+};
+
+// Using BFS
+var maxDepth = function(root) {
+  let maxDepth = 0;
+
+  function BFS(node, level) {
+    if (root === null) {
+      return;
+    }
+    if (level > maxDepth) { // Can also use maxDepth = Math.max(maxDepth, level)
+      maxDepth = level;
+    }
+    BFS(node.left, level + 1);
+    BFS(node.right, level + 1)
+  }
 };

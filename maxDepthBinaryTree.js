@@ -41,18 +41,18 @@ var maxDepth = function(root) {
     return Math.max(left, right) + 1;
 };
 
-// Using BFS
+// Using alternative DFS method
 var maxDepth = function(root) {
   let maxDepth = 0;
 
-  function BFS(node, level) {
+  function DFS(node, level) {
     if (root === null) {
       return;
     }
     if (level > maxDepth) { // Can also use maxDepth = Math.max(maxDepth, level)
       maxDepth = level;
     }
-    BFS(node.left, level + 1);
-    BFS(node.right, level + 1)
+    DFS(node.left, level + 1);
+    DFS(node.right, level + 1)
   }
 };

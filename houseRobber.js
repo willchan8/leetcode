@@ -16,18 +16,25 @@ Input: nums = [2,7,9,3,1]
 Output: 12
 Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
              Total amount you can rob = 2 + 9 + 1 = 12.
+
+Example 3:
+
+Input: nums = [1,2,3,1,1,100]
+Output: 104
+Explanation: Rob house 1 (money = 1), rob house 3 (money = 3) and rob house 6 (money = 100).
+             Total amount you can rob = 1 + 3 + 100 = 104.
  * 
  * @param {number[]} nums
  * @return {number}
  */
 var rob = function(nums) {
   if (nums.length === 0) return 0;
-  let dp = []; // Memo that stores all the previous maxes
+  let dp = []; // Memo that stores all max values so far.
   dp[0] = 0;
   dp[1] = nums[0];
   
   for (let i = 1; i < nums.length; i++) {
-    dp[i + 1] = Math.max(dp[i], dp[i-1] + nums[i]);
+    dp[i + 1] = Math.max(dp[i], dp[i - 1] + nums[i]); // Utilizes the previous 2 max values. Continuously adds new max values to the dp memo array with each iteration.
   }
   
   return dp[nums.length];

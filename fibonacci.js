@@ -1,3 +1,6 @@
+// Return the Nth number in the fibonacci sequence.
+
+// ITERATIVE
 var fib = function(N) {
   if (N < 2) {
       return N;
@@ -11,4 +14,13 @@ var fib = function(N) {
   }
   
   return sequence[N];
+};
+
+// RECURSIVE
+var fib = function(N) {
+  if (N < 2) {
+      return N;
+  }
+  
+  return fib(N - 1) + fib(N - 2);
 };

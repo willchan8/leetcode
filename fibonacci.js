@@ -11,6 +11,8 @@ var fib = function(N) {
   for (let i = 2; i <= N; i++) {
       let sum = sequence[i-1] + sequence[i-2];
       sequence.push(sum);
+
+      // Could write the above in one line: sequence[i] = sequence[i-1] + sequence[i-2];
   }
   
   return sequence[N];

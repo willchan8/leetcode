@@ -1,6 +1,6 @@
 // Return the Nth number in the fibonacci sequence.
 
-// ITERATIVE
+// ITERATIVE / MEMOIZATION (O(n))
 var fib = function(N) {
   if (N < 2) {
       return N;
@@ -16,7 +16,7 @@ var fib = function(N) {
   return sequence[N];
 };
 
-// RECURSIVE
+// RECURSIVE (O(2^n) = SUPER SLOW)
 var fib = function(N) {
   if (N < 2) {
       return N;

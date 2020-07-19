@@ -1,6 +1,6 @@
 // Return the Nth number in the fibonacci sequence.
 
-// ITERATIVE / MEMOIZATION (O(n))
+// ITERATIVE / Tabulation (O(n))
 var fib = function(N) {
   if (N < 2) {
       return N;

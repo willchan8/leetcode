@@ -5,7 +5,7 @@
 // C: Time: O(N), Space: O(1)
 // E: invalid input
 
-// Solution: use two pointers
+// Solution: Use two pointers
 
 function averagePair(integers, target){
   let i = 0;
